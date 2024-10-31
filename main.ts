@@ -11,10 +11,13 @@ input.onButtonPressed(Button.A, function () {
         . . . . .
         `)
 })
+input.onButtonPressed(Button.AB, function () {
+    input.calibrateCompass()
+})
 basic.forever(function () {
     led.plot(2, 2)
-    x = Math.sin(input.compassHeading() * 0.01745329)
-    y = Math.cos(input.compassHeading() * 0.01745329) * -1
+    x = Math.sin(input.compassHeading() * 0.017453) * -1
+    y = Math.cos(input.compassHeading() * 0.017453) * -1
     led.plot(x + 2.5, y + 2.5)
     led.plot(x * 2.25 + 2.5, y * 2.25 + 2.5)
     if (Math.round(x) != Math.round(xold) || Math.round(y) != Math.round(yold)) {
